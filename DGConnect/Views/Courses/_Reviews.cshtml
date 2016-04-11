@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DGConnect.Models.CourseReview>
+@{
+    var testReviews = Model.FirstOrDefault();
+    var courseID = ViewContext.Controller.ViewBag.courseID;
+    //if (testReviews != null)
+    //{ 
+    //    courseID = Model.FirstOrDefault().CourseID;
+    //}
+    
+    
+}
+<p>
+    @Html.ActionLink("Create New", "Create", "CourseReviews", new {CourseID = @courseID }, null)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Body)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating)/10
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Body)
+        </td>
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "CourseReviews", new { id = item.CourseID }) |
+                    @Html.ActionLink("Delete", "Delete", "CourseReviews", new { id = item.ID })
+                </td>
+            }
+        }
+    </tr>
+}
+
+</table>
