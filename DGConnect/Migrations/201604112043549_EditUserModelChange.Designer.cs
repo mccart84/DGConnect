@@ -7,13 +7,13 @@ namespace DGConnect.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class dataAnnotations : IMigrationMetadata
+    public sealed partial class EditUserModelChange : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(dataAnnotations));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(EditUserModelChange));
         
         string IMigrationMetadata.Id
         {
-            get { return "201604101925102_dataAnnotations"; }
+            get { return "201604112043549_EditUserModelChange"; }
         }
         
         string IMigrationMetadata.Source

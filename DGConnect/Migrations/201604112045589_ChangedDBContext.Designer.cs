@@ -7,13 +7,13 @@ namespace DGConnect.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class updatedIdentityModel : IMigrationMetadata
+    public sealed partial class ChangedDBContext : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedIdentityModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedDBContext));
         
         string IMigrationMetadata.Id
         {
-            get { return "201604091453311_updatedIdentityModel"; }
+            get { return "201604112045589_ChangedDBContext"; }
         }
         
         string IMigrationMetadata.Source

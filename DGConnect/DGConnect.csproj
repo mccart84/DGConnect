@@ -183,17 +183,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604060307281_initialCreate.cs" />
-    <Compile Include="Migrations\201604060307281_initialCreate.Designer.cs">
-      <DependentUpon>201604060307281_initialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201604112037283_latestVersion.cs" />
+    <Compile Include="Migrations\201604112037283_latestVersion.Designer.cs">
+      <DependentUpon>201604112037283_latestVersion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604091453311_updatedIdentityModel.cs" />
-    <Compile Include="Migrations\201604091453311_updatedIdentityModel.Designer.cs">
-      <DependentUpon>201604091453311_updatedIdentityModel.cs</DependentUpon>
+    <Compile Include="Migrations\201604112043549_EditUserModelChange.cs" />
+    <Compile Include="Migrations\201604112043549_EditUserModelChange.Designer.cs">
+      <DependentUpon>201604112043549_EditUserModelChange.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604101925102_dataAnnotations.cs" />
-    <Compile Include="Migrations\201604101925102_dataAnnotations.Designer.cs">
-      <DependentUpon>201604101925102_dataAnnotations.cs</DependentUpon>
+    <Compile Include="Migrations\201604112045589_ChangedDBContext.cs" />
+    <Compile Include="Migrations\201604112045589_ChangedDBContext.Designer.cs">
+      <DependentUpon>201604112045589_ChangedDBContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -272,6 +272,11 @@
     <Content Include="Views\CourseReviews\Index.cshtml" />
     <Content Include="Views\Courses\_Reviews.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -286,14 +291,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604060307281_initialCreate.resx">
-      <DependentUpon>201604060307281_initialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604112037283_latestVersion.resx">
+      <DependentUpon>201604112037283_latestVersion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604091453311_updatedIdentityModel.resx">
-      <DependentUpon>201604091453311_updatedIdentityModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604112043549_EditUserModelChange.resx">
+      <DependentUpon>201604112043549_EditUserModelChange.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604101925102_dataAnnotations.resx">
-      <DependentUpon>201604101925102_dataAnnotations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604112045589_ChangedDBContext.resx">
+      <DependentUpon>201604112045589_ChangedDBContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
