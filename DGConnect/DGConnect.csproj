@@ -271,6 +271,7 @@
     <Content Include="Views\CourseReviews\Edit.cshtml" />
     <Content Include="Views\CourseReviews\Index.cshtml" />
     <Content Include="Views\Courses\_Reviews.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
