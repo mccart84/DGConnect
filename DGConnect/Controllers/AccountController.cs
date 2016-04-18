@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Net;
 using Microsoft.AspNet.Identity.EntityFramework;
+using DGConnect.CustomAttributes;
 
 namespace DGConnect.Controllers
 {
@@ -408,6 +409,7 @@ namespace DGConnect.Controllers
             return View();
         }
 
+        [AuthorizeOrRedirect(Roles = "Admin")]
         public ActionResult Index()
         {
             var db = new ApplicationDbContext();
@@ -423,6 +425,7 @@ namespace DGConnect.Controllers
             return View(model);
         }
 
+        [AuthorizeOrRedirect(Roles = "Admin")]
         public ActionResult Details(string userName = null)
         {
             var db = new ApplicationDbContext();
@@ -438,6 +441,7 @@ namespace DGConnect.Controllers
         }
 
         // GET: Users/Create
+        [AuthorizeOrRedirect(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -448,6 +452,7 @@ namespace DGConnect.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthorizeOrRedirect(Roles = "Admin")]
         public async Task<ActionResult> Create(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -474,6 +479,7 @@ namespace DGConnect.Controllers
             return View(model);
         }
 
+        [AuthorizeOrRedirect(Roles = "Admin")]
         public ActionResult Edit(string userName = null)
         {
             if (userName == null)
@@ -495,7 +501,8 @@ namespace DGConnect.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserName, LastName, FirstName, PDGA, Email")] EditUserViewModel userModel)
+        [AuthorizeOrRedirect(Roles = "Admin")]
+        public ActionResult Edit([Bind(Include = "UserName, LastName, FirstName, PDGA, Email, Password, ConfirmPassword")] EditUserViewModel userModel)
         {
             if (ModelState.IsValid)
             {
@@ -507,6 +514,9 @@ namespace DGConnect.Controllers
                 user.PDGA = userModel.PDGA;
                 user.Email = userModel.Email;
 
+                PasswordHasher ph = new PasswordHasher();
+                user.PasswordHash = ph.HashPassword(userModel.Password);
+
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -515,6 +525,7 @@ namespace DGConnect.Controllers
             return View(userModel);
         }
 
+        [AuthorizeOrRedirect(Roles = "Admin")]
         public ActionResult Delete(string userName = null)
         {
             var db = new ApplicationDbContext();
@@ -531,6 +542,7 @@ namespace DGConnect.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost, ActionName("Delete")]
+        [AuthorizeOrRedirect(Roles = "Admin")]
         public ActionResult DeleteConfirmed(string userName)
         {
             var db = new ApplicationDbContext();
@@ -540,6 +552,7 @@ namespace DGConnect.Controllers
             return RedirectToAction("Index");
         }
 
+        [AuthorizeOrRedirect(Roles = "Admin")]
         public ActionResult ViewUsersRoles(string userName = null)
         {
             if (!string.IsNullOrWhiteSpace(userName))
@@ -570,6 +583,7 @@ namespace DGConnect.Controllers
             return View();
         }
 
+        [AuthorizeOrRedirect(Roles = "Admin")]
         public ActionResult AddRoleToUser(string userName = null)
         {
             List<string> roles;
@@ -589,6 +603,7 @@ namespace DGConnect.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthorizeOrRedirect(Roles = "Admin")]
         public ActionResult AddRoleToUser(string roleName, string userName)
         {
             List<string> roles;
@@ -639,7 +654,7 @@ namespace DGConnect.Controllers
             }
         }
 
-
+        [AuthorizeOrRedirect(Roles = "Admin")]
         public ActionResult DeleteRoleForUser(string userName = null, string roleName = null)
         {
             if ((!string.IsNullOrWhiteSpace(userName)) || (!string.IsNullOrWhiteSpace(roleName)))

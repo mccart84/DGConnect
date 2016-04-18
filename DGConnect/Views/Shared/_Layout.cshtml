@@ -28,7 +28,7 @@
                     <li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            if (User.IsInRole("Admin"))
+                            if (User.IsInRole("Admin") | User.IsInRole("Course Admin"))
                             {
                                 @Html.ActionLink("Admin", "Admin", "Home")
                             }

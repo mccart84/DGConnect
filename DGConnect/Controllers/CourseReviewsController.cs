@@ -36,9 +36,15 @@ namespace DGConnect.Controllers
         }
 
         // GET: CourseReviews/Create
-        public ActionResult Create(int CourseID)
+        public ActionResult Create(int? CourseID)
         {
+            if (CourseID == null)
+            {
+                CourseID = 0;
+            }
+
             ViewBag.CourseID = CourseID;
+
             return View();
         }
 

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using DGConnect.Models;
 using PagedList;
+using DGConnect.CustomAttributes;
 
 namespace DGConnect.Controllers
 {
@@ -59,6 +60,7 @@ namespace DGConnect.Controllers
             return View(course);
         }
 
+        [AuthorizeOrRedirect(Roles = "Admin, Course Admin")]
         // GET: Courses/Create
         public ActionResult Create()
         {
@@ -70,6 +72,7 @@ namespace DGConnect.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthorizeOrRedirect(Roles = "Admin, Course Admin")]
         public ActionResult Create([Bind(Include = "ID,Name,Address,City,State,Country")] Course course)
         {
             if (ModelState.IsValid)
@@ -83,6 +86,7 @@ namespace DGConnect.Controllers
         }
 
         // GET: Courses/Edit/5
+        [AuthorizeOrRedirect(Roles = "Admin, Course Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -102,6 +106,7 @@ namespace DGConnect.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthorizeOrRedirect(Roles = "Admin, Course Admin")]
         public ActionResult Edit([Bind(Include = "ID,Name,Address,City,State,Country")] Course course)
         {
             if (ModelState.IsValid)
@@ -114,6 +119,7 @@ namespace DGConnect.Controllers
         }
 
         // GET: Courses/Delete/5
+        [AuthorizeOrRedirect(Roles = "Admin, Course Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -131,6 +137,7 @@ namespace DGConnect.Controllers
         // POST: Courses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AuthorizeOrRedirect(Roles = "Admin, Course Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Course course = db.Courses.Find(id);
