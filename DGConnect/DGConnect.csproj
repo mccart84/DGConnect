@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201604112045589_ChangedDBContext.Designer.cs">
       <DependentUpon>201604112045589_ChangedDBContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604190114185_UndoFileChanges.cs" />
+    <Compile Include="Migrations\201604190114185_UndoFileChanges.Designer.cs">
+      <DependentUpon>201604190114185_UndoFileChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
@@ -315,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604112045589_ChangedDBContext.resx">
       <DependentUpon>201604112045589_ChangedDBContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604190114185_UndoFileChanges.resx">
+      <DependentUpon>201604190114185_UndoFileChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
