@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DGConnect.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,17 @@ namespace DGConnect.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
+            var topRated =
+                from r in db.Courses
+                orderby r.Reviews.Average(review => review.Rating) descending
+                select r;
+
+            ViewBag.topRatedCourses = topRated.Take(5);
+
             return View();
         }
 
@@ -30,6 +40,16 @@ namespace DGConnect.Controllers
         public ActionResult Admin()
         {
             return View();
+        }
+
+        public ActionResult TopRatedCourses()
+        {
+            var averageRating = db.Courses
+                .OrderByDescending(r => r.Reviews.Average(review => review.Rating))
+                .Take(5)
+                .ToList();
+
+            return PartialView(averageRating);
         }
     }
 }

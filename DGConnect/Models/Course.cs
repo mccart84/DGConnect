@@ -19,6 +19,8 @@ namespace DGConnect.Models
         public string State { get; set; }
         [Required]
         public string Country { get; set; }
+
         public virtual ICollection<CourseReview> Reviews { get; set; }
+
     }
 }

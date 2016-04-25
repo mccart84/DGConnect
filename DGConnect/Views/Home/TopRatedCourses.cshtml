@@ -1,0 +1,18 @@
+﻿@model IEnumerable<DGConnect.Models.Course>
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Details", "Courses", new { id = item.ID }, null) <br />
+                @Html.DisplayFor(modelItem => item.City)
+                @Html.DisplayFor(modelItem => item.State)
+                @Html.DisplayFor(modelItem => item.Country)<br />
+            </td>
+        </tr>
+    }
+
+</table>
+
