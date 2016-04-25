@@ -55,6 +55,7 @@ namespace DGConnect.Controllers
         public ActionResult UpcomingTournaments()
         {
             var upcomingTournaments = db.Tournaments
+                .Where(t => t.TournamentDate >= DateTime.Now)
                 .OrderBy(t => t.TournamentDate)
                 .Take(5)
                 .ToList();
