@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DGConnect.Models.Tournament>
+@{
+    var courseID = ViewContext.Controller.ViewBag.courseID;
+}
+
+@if (User.IsInRole("Admin") | User.IsInRole("CourseAdmin"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", "Tournaments", new { CourseID = @courseID }, null)
+    </p>
+}
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Details", "Tournaments", new { id = item.ID }, null) <br />
+                @Html.DisplayFor(modelItem => item.TournamentDate) <br />
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin") | User.IsInRole("CourseAdmin"))
+                {
+
+                    @Html.ActionLink("Edit", "Edit", "Tournaments", new { id = item.ID }, null) @:|
+                    @Html.ActionLink("Delete", "Delete", "Tournaments", new { id = item.ID }, null)
+
+                }
+            </td>
+        </tr>
+    }
+
+</table>

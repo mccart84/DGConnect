@@ -182,6 +182,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IdentityRoleController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TournamentsController.cs" />
     <Compile Include="CustomAttributes\AuthorizeOrRedirect.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -202,12 +203,17 @@
     <Compile Include="Migrations\201604190114185_UndoFileChanges.Designer.cs">
       <DependentUpon>201604190114185_UndoFileChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604250330129_tournaments.cs" />
+    <Compile Include="Migrations\201604250330129_tournaments.Designer.cs">
+      <DependentUpon>201604250330129_tournaments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseReview.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Tournament.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -299,6 +305,12 @@
     <Content Include="Views\Account\AddRoleToUser.cshtml" />
     <Content Include="Views\Error\AccessDenied.cshtml" />
     <Content Include="Views\Home\TopRatedCourses.cshtml" />
+    <Content Include="Views\Tournaments\Create.cshtml" />
+    <Content Include="Views\Tournaments\Delete.cshtml" />
+    <Content Include="Views\Tournaments\Details.cshtml" />
+    <Content Include="Views\Tournaments\Edit.cshtml" />
+    <Content Include="Views\Tournaments\Index.cshtml" />
+    <Content Include="Views\Courses\_Tournaments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -323,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604190114185_UndoFileChanges.resx">
       <DependentUpon>201604190114185_UndoFileChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604250330129_tournaments.resx">
+      <DependentUpon>201604250330129_tournaments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

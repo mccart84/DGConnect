@@ -22,5 +22,7 @@ namespace DGConnect.Models
 
         public virtual ICollection<CourseReview> Reviews { get; set; }
 
+        public virtual ICollection<Tournament> Tournaments { get; set; }
+
     }
 }

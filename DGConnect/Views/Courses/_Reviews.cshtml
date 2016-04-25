@@ -10,7 +10,7 @@
     
 }
 <p>
-    @Html.ActionLink("Create New", "Create", "CourseReviews", new {CourseID = @courseID }, null)
+    @Html.ActionLink("Add a review", "Create", "CourseReviews", new {CourseID = @courseID }, null)
 </p>
 <table class="table">
     <tr>
@@ -36,8 +36,8 @@
             if (User.IsInRole("Admin"))
             {
                 <td>
-                    @Html.ActionLink("Edit", "Edit", "CourseReviews", new { id = item.CourseID }) |
-                    @Html.ActionLink("Delete", "Delete", "CourseReviews", new { id = item.ID })
+                    @Html.ActionLink("Edit", "Edit", "CourseReviews", new { id = item.CourseID }, null) |
+                    @Html.ActionLink("Delete", "Delete", "CourseReviews", new { id = item.ID }, null)
                 </td>
             }
         }

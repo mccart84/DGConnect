@@ -38,6 +38,8 @@ namespace DGConnect.Models
 
         public System.Data.Entity.DbSet<DGConnect.Models.CourseReview> CourseReviews { get; set; }
 
+        public System.Data.Entity.DbSet<DGConnect.Models.Tournament> Tournaments { get; set; }
+
         //public System.Data.Entity.DbSet<DGConnect.Models.EditUserViewModel> EditUserViewModels { get; set; }
     }
 }
