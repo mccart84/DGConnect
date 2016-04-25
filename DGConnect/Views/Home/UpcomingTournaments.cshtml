@@ -1,0 +1,16 @@
+﻿@model IEnumerable<DGConnect.Models.Tournament>
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Details", "Courses", new { id = item.ID }, null) <br />
+                @Html.DisplayFor(modelItem => item.TournamentDate) <br />
+            </td>
+        </tr>
+    }
+
+</table>
+

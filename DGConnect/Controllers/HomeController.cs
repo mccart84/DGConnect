@@ -51,5 +51,15 @@ namespace DGConnect.Controllers
 
             return PartialView(averageRating);
         }
+
+        public ActionResult UpcomingTournaments()
+        {
+            var upcomingTournaments = db.Tournaments
+                .OrderBy(t => t.TournamentDate)
+                .Take(5)
+                .ToList();
+
+            return PartialView(upcomingTournaments);
+        }
     }
 }

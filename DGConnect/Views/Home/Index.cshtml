@@ -68,25 +68,13 @@
         </p>
     </div>
     <div class="col-md-4">
-        <h2>Tournaments</h2>
-        <p>
-            Sed lobortis malesuada est vitae vulputate. In placerat bibendum consectetur. Cras consectetur sem erat, sit amet tincidunt elit 
-            lacinia eget. Etiam mattis consectetur arcu, non mattis odio rutrum non. Suspendisse ultrices, erat a accumsan convallis, quam 
-            purus commodo lorem, quis interdum lectus neque nec orci. Phasellus tempus lobortis vulputate. Proin porttitor mi nibh, mollis 
-            pulvinar orci mattis sed. Donec eu cursus nulla. Praesent quis vestibulum augue. Integer egestas ex nunc, eu auctor purus volutpat 
-            sed. Proin eu metus iaculis, dictum enim vulputate, consectetur diam.
-        </p>
+        <h2>Upcoming Tournaments</h2>
+        @Html.Action("UpcomingTournaments", "Home")
         
     </div>
 
     <div class="col-md-4">
         <h2>Top Rated Courses</h2>
         @Html.Action("TopRatedCourses", "Home")
-        @*<p>
-            
-            Suspendisse vel erat lorem. Fusce at malesuada eros, vel luctus dolor. Vivamus faucibus id velit et elementum. In hac habitasse 
-            platea dictumst. Ut in lacus libero. Vestibulum libero nisi, lobortis nec erat vel, rutrum viverra diam. Aliquam eget velit consectetur, 
-            maximus lorem eu, ornare magna.
-        </p>*@
     </div>
 </div>
